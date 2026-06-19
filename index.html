@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 再次相遇的站点</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2b3a;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 0 60px;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid #e6eaef;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      color: #1e2b3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e2b3a;
+      font-size: 0.95rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #2f6b9e;
+      color: #2f6b9e;
+    }
+
+    /* hero 区域 */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 52px 40px 44px;
+      margin-bottom: 36px;
+      border: 1px solid #e3e8ef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      color: #3a4a5c;
+      margin-bottom: 24px;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #eef2f8;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #2f5f7e;
+      border: 1px solid #d8e0ea;
+    }
+
+    /* 卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e3e8ef;
+      border-radius: 20px;
+      padding: 28px 28px 32px;
+      flex: 1 1 280px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+      color: #1e2b3a;
+    }
+
+    .card p {
+      color: #3f4e5f;
+      margin-bottom: 12px;
+    }
+
+    .card .meta-icon {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #eef3f9;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #2f6b9e;
+    }
+
+    /* 常见说明区 (FAQ 摘要) */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 32px 36px 36px;
+      border: 1px solid #e3e8ef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      margin-bottom: 32px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .faq-item {
+      padding: 16px 0;
+      border-bottom: 1px solid #ecf0f5;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1e2b3a;
+    }
+
+    .faq-item p {
+      color: #3f4e5f;
+    }
+
+    /* 链接内联样式 */
+    .inline-link {
+      color: #1f5a7a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #b6c8db;
+      font-weight: 500;
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+
+    .inline-link:hover {
+      color: #0e3d5a;
+      text-decoration-color: #2f6b9e;
+    }
+
+    /* 页脚 */
+    .footer {
+      text-align: center;
+      padding: 24px 0 10px;
+      color: #5b6b7c;
+      font-size: 0.9rem;
+      border-top: 1px solid #dfe5ed;
+      margin-top: 20px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      .hero {
+        padding: 32px 20px 28px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 18px;
+      }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .faq-section {
+        padding: 24px 18px;
+      }
+      .card-grid {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0 12px;
+      }
+      .card {
+        padding: 20px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 顶部导航 -->
+    <header class="nav">
+      <span class="nav-logo">◈ 再次访问</span>
+      <div class="nav-links">
+        <a href="#">收藏</a>
+        <a href="#">持续关注</a>
+        <a href="#">常见说明</a>
+      </div>
+    </header>
+
+    <!-- hero 介绍 -->
+    <section class="hero">
+      <h1>你曾到访，此处依然</h1>
+      <p>
+        如果你曾通过 <a href="https://homesite-aiyouxi.com.cn" class="inline-link">爱游戏</a> 
+        浏览过游戏资讯或社区内容，那么这次回来会发现结构更清晰了。站点保持了一贯的轻量风格，同时整理了导航与场景模块，方便再次定位感兴趣的话题。
+      </p>
+      <p>
+        收藏夹里的链接也许已更新，但域名不变——https://homesite-aiyouxi.com.cn 始终指向同一个地方。你可以随时回到这里，查看新增内容或重新翻阅之前的记录。
+      </p>
+      <span class="tagline">✦ 持续关注 · 自然生长</span>
+    </section>
+
+    <!-- 三个场景模块 (卡片) -->
+    <div class="card-grid">
+      <div class="card">
+        <div class="meta-icon">🔄</div>
+        <h3>再次访问的路径</h3>
+        <p>
+          当你再次打开站点，首页提供了清晰的入口。你可以直接通过浏览器历史记录或书签回到 
+          <a href="https://homesite-aiyouxi.com.cn" class="inline-link">爱游戏</a>，无需重新搜索。
+          页面布局保持了一致性，减少适应成本。
+        </p>
+      </div>
+      <div class="card">
+        <div class="meta-icon">📑</div>
+        <h3>收藏与归位</h3>
+        <p>
+          将当前页面加入浏览器收藏夹，或保存到笔记工具中。下次访问时，所有模块位置不变。
+          站点不会频繁变动核心结构，收藏后即可长期使用。
+        </p>
+      </div>
+      <div class="card">
+        <div class="meta-icon">🔍</div>
+        <h3>持续关注的节奏</h3>
+        <p>
+          不必每天查看，站点内容按周期更新。每隔一段时间回来，可能会发现新的场景卡片或补充说明。
+          关注 <a href="https://homesite-aiyouxi.com.cn" class="inline-link">爱游戏</a> 的长期变化，比一次性浏览更有价值。
+        </p>
+      </div>
+    </div>
+
+    <!-- 常见说明（FAQ 摘要） -->
+    <div class="faq-section">
+      <h2>常见说明 · 摘要</h2>
+
+      <div class="faq-item">
+        <strong>为什么要再次访问这个站点？</strong>
+        <p>站点内容会逐步丰富，每次回来都可能看到不同的模块或调整后的说明。如果你对游戏领域保持兴趣，定期回访能获取更完整的上下文。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>如何确认我收藏的是最新地址？</strong>
+        <p>目前唯一地址为 https://homesite-aiyouxi.com.cn ，收藏时请核对完整域名。站点不会跳转到其他二级域名，收藏后长期有效。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>持续关注意味着什么？</strong>
+        <p>意味着你将这个站点作为信息源之一，而非一次性浏览。站点更新频率不高，但每次更新都围绕已有结构做补充，适合深度阅读者。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>页面中的“三个场景”会变化吗？</strong>
+        <p>场景模块会根据阶段调整主题，但始终维持在三个左右。当前场景围绕“再次访问、收藏与持续关注”展开，后续可能替换为其他实用角度。</p>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+      <a href="https://homesite-aiyouxi.com.cn" class="inline-link">爱游戏</a> · 保持联系 · 站点内容定期微调
+    </div>
+
+  </div>
+</body>
+</html>
