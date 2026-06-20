@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>百家乐资料索引 · 专题整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inter", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f2ed;
+            color: #1e1e1e;
+            line-height: 1.7;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: #1a1c23;
+            background-image: radial-gradient(ellipse at 70% 30%, #2b2f3b 0%, #121317 90%);
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            color: #e8e6e1;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b39b80, #d4b996, #b39b80, transparent);
+            opacity: 0.4;
+        }
+        .hero h1 {
+            font-weight: 460;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.3rem;
+        }
+        .hero .sub {
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: #bcb4a6;
+            max-width: 720px;
+            margin: 0.5rem auto 0;
+            border-top: 1px solid #3a3b42;
+            padding-top: 1rem;
+        }
+
+        /* 浅色正文区容器 */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.5rem 1.8rem;
+            background: #ffffff;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.02);
+        }
+
+        /* 卡片式分段 */
+        .section-card {
+            background: #f9f7f3;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #edeae3;
+            transition: box-shadow 0.15s;
+        }
+        .section-card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+        }
+        .section-card h2 {
+            font-size: 1.6rem;
+            font-weight: 440;
+            letter-spacing: 0.5px;
+            color: #2c2a28;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #d6cec1;
+            display: inline-block;
+        }
+        .section-card p {
+            margin-bottom: 1rem;
+            color: #2e2b28;
+        }
+        .section-card p:last-child {
+            margin-bottom: 0;
+        }
+        .accent-link {
+            color: #8f5f3c;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.2s, color 0.2s;
+        }
+        .accent-link:hover {
+            border-bottom: 1px solid #8f5f3c;
+            color: #553c2a;
+        }
+        .key-term {
+            background: #ede7dd;
+            padding: 0.08rem 0.35rem;
+            border-radius: 6px;
+            font-weight: 450;
+            color: #1e1c18;
+        }
+
+        /* 特点小标 inline */
+        .inline-highlight {
+            background: #e6dfd2;
+            border-radius: 30px;
+            padding: 0.1rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 450;
+            color: #3b332b;
+            display: inline-block;
+            margin-right: 0.3rem;
+        }
+
+        /* 场景列表 */
+        .scene-list {
+            list-style: none;
+            margin: 1.2rem 0 0.8rem;
+        }
+        .scene-list li {
+            padding: 0.35rem 0 0.35rem 1.4rem;
+            position: relative;
+            color: #2f2c28;
+        }
+        .scene-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #8f6a48;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ摘要卡片 */
+        .faq-preview {
+            background: #efebe4;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0 0.8rem;
+        }
+        .faq-preview h3 {
+            font-weight: 450;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #2c2823;
+        }
+        .faq-preview details {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #dad5cb;
+            padding-bottom: 0.4rem;
+        }
+        .faq-preview details:last-of-type {
+            border-bottom: none;
+        }
+        .faq-preview summary {
+            font-weight: 440;
+            cursor: pointer;
+            color: #3b3530;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .faq-preview summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-preview summary::before {
+            content: "❓";
+            margin-right: 8px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .faq-preview details[open] summary::before {
+            content: "💬";
+        }
+        .faq-preview .faq-answer {
+            padding: 0.2rem 0 0.6rem 1.8rem;
+            color: #4c453e;
+            font-size: 0.95rem;
+        }
+
+        /* 页尾 */
+        .page-footer {
+            background: #e7e2d9;
+            padding: 2.2rem 1.8rem;
+            text-align: center;
+            color: #3d3933;
+            border-top: 1px solid #d5cec2;
+            font-size: 0.95rem;
+        }
+        .page-footer .footer-note {
+            max-width: 600px;
+            margin: 0.6rem auto 0;
+            color: #5a534b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 1rem; }
+            .container { padding: 1.5rem 1rem; }
+            .section-card { padding: 1.5rem 1.2rem; }
+            .faq-preview { padding: 1.2rem; }
+        }
+        @media (max-width: 480px) {
+            .hero { padding: 2.8rem 1rem 2.5rem; }
+            .section-card h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图 / 杂志横幅 -->
+<header class="hero">
+    <h1>百家乐 · 资料索引</h1>
+    <div class="sub">规则梳理 · 常见变体 · 信息整理</div>
+</header>
+
+<!-- 浅色正文区 -->
+<main class="container">
+
+    <!-- 背景说明 / 引言卡片 -->
+    <div class="section-card">
+        <h2>从资料整理说起</h2>
+        <p>
+            关于<a href="https://webs--baccarat.com" class="accent-link">百家乐</a>的信息，长期以来分散在各种论坛、规则手册和视频解说中。这份索引的目的，是将相对常见的规则描述、牌例约定以及不同地区的习惯玩法做一次平实的汇总，不涉及任何策略引导或结果预测，仅作为信息查阅的起点。
+        </p>
+        <p>
+            作为纸牌游戏中历史较长的项目之一，<span class="key-term">百家乐</span>的基本架构其实相当简洁：只有“庄家”、“闲家”两个比较对象，以及“和”这一结果选项。然而不同赌场或线上平台在补牌规则、赔率设置以及桌面限制上存在细微差异，这些差异恰恰是资料整理中有必要标注的部分。
+        </p>
+    </div>
+
+    <!-- 三段自然介绍 (特点+场景+变体说明) -->
+    <div class="section-card">
+        <h2>规则概要 &amp; 常见变体</h2>
+        <p>
+            <span class="inline-highlight">标准</span> 使用八副扑克混合，牌点计算按 2-9 为面值，10、J、Q、K 计为 0，A 为 1；只取个位数比较。补牌规则由荷官（或系统）依照第三张牌表自动执行，玩家无需决策。这种“自动补牌”的特征，让整个流程更接近一种观察和记录过程。
+        </p>
+        <p>
+            <span class="inline-highlight">北美</span> 在一些私人牌局中采用“剪牌”和“切牌”的简化流程；<span class="inline-highlight">欧洲</span> 部分平台提供“免佣金”版本，即庄家赢且点数为 6 时只支付一半彩金。这些变体并不会改变核心比较逻辑，但在赔率计算上需要单独留意。
+        </p>
+        <p>
+            另一类需要区分的是“速决”和“慢速”模式：某些即时场每局仅 30 秒，而传统沙龙桌节奏更慢，并伴有历史路单显示。了解节奏差异有助于选择适合自己的信息环境。
+        </p>
+
+        <!-- 场景举例 -->
+        <h3 style="font-weight: 430; font-size: 1rem; margin: 1.4rem 0 0.4rem; color:#3a342f;">适用场景举例</h3>
+        <ul class="scene-list">
+            <li>查阅规则细节时，对比不同地区的补牌表</li>
+            <li>整理历史数据或进行纯粹的概率统计练习</li>
+            <li>了解“庄家优势”的数学说明（不含误导性承诺）</li>
+            <li>作为文化或博弈史的一部分进行文字研究</li>
+        </ul>
+    </div>
+
+    <!-- 第三段：索引价值与 FAQ 摘要 -->
+    <div class="section-card">
+        <h2>信息索引 &amp; 常见疑问摘要</h2>
+        <p>
+            纯粹从资料索引的角度来看，<a href="https://webs--baccarat.com" class="accent-link">百家乐</a>相关的英文资料相对丰富，中文资料则常夹杂非客观表述。因此我们尝试筛选出描述准确、不渲染情绪的段落。以下汇总几个常见疑问的简要回答，均来自公开规则文档的整理。
+        </p>
+
+        <div class="faq-preview">
+            <h3>📄 FAQ 摘要</h3>
+            <details>
+                <summary>“庄家”和“闲家”代表玩家吗？</summary>
+                <div class="faq-answer">不。庄家、闲家只是两个对赌位置名称，玩家可以选择押注任意一方（包括和局），没有任何角色绑定。</div>
+            </details>
+            <details>
+                <summary>补牌规则可以自行决定吗？</summary>
+                <div class="faq-answer">不可以。所有补牌完全由既定规则自动执行，玩家无法干预。不同地区版本仅在具体补牌节点有极微差异。</div>
+            </details>
+            <details>
+                <summary>为什么经常看到“路单”或“珠盘”？</summary>
+                <div class="faq-answer">这是一种记录每局庄、闲、和结果的视觉表格，用于呈现历史趋势，并非预测工具。多数平台免费提供，仅供查阅。</div>
+            </details>
+            <details>
+                <summary>资料中常提到的“免佣”是什么意思？</summary>
+                <div class="faq-answer">指庄赢时平台不抽 5% 佣金，但若庄以 6 点获胜则只赔一半。是赔率上的变体，不影响基础规则。</div>
+            </details>
+        </div>
+        <p style="margin-top: 0.6rem; font-size: 0.9rem; color: #5c554d;">
+            * 以上回答仅基于常规规则说明，不构成操作建议或保证。
+        </p>
+    </div>
+
+    <!-- 页尾访问提示（自然嵌入句子，不含命令式词汇） -->
+    <div style="background: #f0ece4; border-radius: 48px; padding: 1.8rem 2rem; text-align: center; margin: 1rem 0 0.4rem;">
+        <p style="font-size: 1.1rem; color: #35302a;">
+            如果你想查阅更完整的规则档案、赔率表以及不同地区的玩法说明，
+            可以前往<a href="https://webs--baccarat.com" class="accent-link" style="font-weight: 500;">百家乐</a>信息页面浏览收录的整理内容。
+        </p>
+        <p style="color: #5a534b; margin-top: 0.5rem; font-size: 0.9rem;">
+            页面保持定期更新，所有资料均标注来源范围，供自行核对。
+        </p>
+    </div>
+
+</main>
+
+<!-- 页尾 -->
+<footer class="page-footer">
+    <div>📋 百家乐资料索引 · 仅做信息整理</div>
+    <div class="footer-note">
+        内容基于公开规则与常见玩法说明汇编，不构成任何形式的引导。请理性阅读。
+    </div>
+</footer>
+
+</body>
+</html>
