@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次驻足 · 百家乐角落</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f1f6f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            color: #1e2b2a;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+        }
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #d6eae6 0%, #b4d4ce 100%);
+            border-radius: 2.5rem 2.5rem 1.5rem 1.5rem;
+            padding: 3rem 2rem 2.8rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 18px rgba(30, 43, 42, 0.06);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 450;
+            letter-spacing: 0.02em;
+            color: #0e2b27;
+            margin-bottom: 0.6rem;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #1d403b;
+            max-width: 600px;
+            margin: 0.5rem auto 1rem;
+            border-top: 1px solid rgba(30, 43, 42, 0.15);
+            padding-top: 1.2rem;
+        }
+        .hero .sub strong {
+            font-weight: 500;
+            background: #1b3e39;
+            color: #e2f0ed;
+            padding: 0.1rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+        }
+        .hero .tagline {
+            font-size: 1rem;
+            color: #29524a;
+            border: 1px dashed #3d6b63;
+            display: inline-block;
+            padding: 0.3rem 1.4rem;
+            border-radius: 40px;
+            background: rgba(255,255,255,0.2);
+            margin-top: 0.5rem;
+        }
+        /* grid cards */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0 3.2rem;
+        }
+        .card {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 4px 14px rgba(30, 43, 42, 0.05);
+            transition: all 0.2s ease;
+            border: 1px solid #d5e3df;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(30, 70, 65, 0.08);
+            border-color: #7aa59b;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 480;
+            color: #17322e;
+            border-left: 5px solid #2f786b;
+            padding-left: 0.8rem;
+            margin-bottom: 0.9rem;
+        }
+        .card p {
+            font-size: 0.98rem;
+            color: #2a4540;
+            margin-bottom: 0.35rem;
+        }
+        .card .dot-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: #b7d3cc;
+            color: #15312d;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.6rem;
+        }
+        /* 说明区 —— 叙述块 */
+        .narrative {
+            background: #e3efeb;
+            border-radius: 2.2rem;
+            padding: 2.3rem 2rem;
+            margin: 2.8rem 0;
+            position: relative;
+        }
+        .narrative h2 {
+            font-size: 1.7rem;
+            font-weight: 420;
+            color: #12302b;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+        .narrative p {
+            margin-bottom: 0.9rem;
+            color: #1b3732;
+        }
+        .narrative .highlight {
+            background: #fff;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 450;
+            color: #1b5b50;
+        }
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            background: #fafffe;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            margin: 2.2rem 0 1.8rem;
+            border: 1px solid #c3d9d3;
+        }
+        .faq-item {
+            border-bottom: 1px solid #deeae6;
+            padding-bottom: 0.8rem;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #12322d;
+            display: flex;
+            align-items: baseline;
+        }
+        .faq-q::before {
+            content: "▸";
+            color: #2d7b6d;
+            margin-right: 0.5rem;
+        }
+        .faq-a {
+            font-size: 0.9rem;
+            color: #2f554e;
+            margin-top: 0.2rem;
+            margin-left: 1.5rem;
+        }
+        .faq-a a {
+            color: #1d6f5f;
+            text-decoration: underline wavy #8fbeb3 1.5px;
+            text-underline-offset: 4px;
+            font-weight: 450;
+        }
+        /* 底部链接 */
+        .bottom-note {
+            margin-top: 2.8rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #cbdad5;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #2a4e47;
+        }
+        .bottom-note a {
+            color: #1b695b;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 2px solid transparent;
+            transition: 0.15s;
+        }
+        .bottom-note a:hover {
+            border-bottom-color: #2b7869;
+        }
+        .bottom-note .small-meta {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            color: #587a72;
+        }
+        /* 响应 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 1rem; }
+            .narrative { padding: 1.8rem 1.2rem; }
+            .faq-summary { padding: 1.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- hero -->
+    <section class="hero">
+        <h1>又见面了 · 这里仍是 <span style="background: #1d4c43; color: #e8f5f1; padding: 0.1rem 0.6rem; border-radius: 30px;">百家乐</span></h1>
+        <div class="sub">
+            收藏夹里的那页<br>
+            <strong>再次回来</strong> 不必重新寻找
+        </div>
+        <div class="tagline">随时可以驻足片刻</div>
+    </section>
+
+    <!-- 优势卡片 -->
+    <div class="grid-cards">
+        <div class="card">
+            <h3>每次打开都是熟悉的角落</h3>
+            <p>页面布局始终一致，不必适应新的变化。适合习惯固定节奏的人。</p>
+            <span class="dot-label">收藏 · 直达</span>
+        </div>
+        <div class="card">
+            <h3>没有推送，只有安静浏览</h3>
+            <p>不弹窗，不要求注册。把决定权留在你手里，想什么时候看就什么时候看。</p>
+            <span class="dot-label">零干扰</span>
+        </div>
+        <div class="card">
+            <h3>结构简单，不冗余</h3>
+            <p>信息分层克制冷淡，没有夸大的描述。每段文字都经过修剪。</p>
+            <span class="dot-label">轻量</span>
+        </div>
+    </div>
+
+    <!-- 叙述说明区 -->
+    <div class="narrative">
+        <h2>关于持续关注这件事</h2>
+        <p>有时打开一个页面，并不是为了寻找新鲜感，而是想回到一个曾经觉得清晰的地方。<span class="highlight">百家乐</span> 这个词本身不复杂，但围绕它的信息来来去去，容易变得嘈杂。</p>
+        <p>如果你曾经收藏过这个站点，或者偶尔会回来扫一眼，那么它已经成了你网络轨迹里一个小小的坐标。我们只是保持它干净、直接，不在上面堆砌装饰。</p>
+        <p>再次访问不需要理由。收藏夹里的链接，有时比书签更安静——它就在那里，不催促，不提醒。</p>
+    </div>
+
+    <!-- FAQ 摘要（差异化的问答风格，偏简短） -->
+    <div class="faq-summary">
+        <div class="faq-item">
+            <div class="faq-q">为什么页面内容看起来不多？</div>
+            <div class="faq-a">信息密度经过控制，只展示必要的部分。更多背景和规则可以通过页面中的链接了解。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">收藏后页面会变化吗？</div>
+            <div class="faq-a">结构和风格保持稳定。我们不会突然改版或移动位置，你可以放心保存书签。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何快速再次找到这里？</div>
+            <div class="faq-a">在浏览器书签栏添加 <a href="https://zhweb--baccarat.com">百家乐</a> 即可，一次收藏，之后随时点开。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="bottom-note">
+        <p>如果你想进一步了解，可以直接前往 <a href="https://zhweb--baccarat.com">百家乐</a> 浏览完整内容。</p>
+        <span class="small-meta">页面保持克制叙述，无诱导信息 · 感谢再次回来</span>
+    </div>
+
+</div>
+</body>
+</html>
